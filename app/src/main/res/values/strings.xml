@@ -1,6 +1,3 @@
 <resources>
-    <string name="app_name">Demo API Calling</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">DemoAPICalling</string>
 </resources>

@@ -1,6 +1,12 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlinAndroid)
+//    id ("kotlin-kapt")
+//    id ("com.google.dagger.hilt.android")
+//    id ("org.jetbrains.kotlin.kapt")
+//    id ("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -9,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId = "com.hardik.demoapicalling"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,33 +39,52 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
-    }
+//    packaging{
+//        resources{
+//            excludes += "/META-INF{AL2.0 ,LGPL2.1}"
+//            excludes += "/META-INF/gradle/incremental.annotation.processors"
+//        }
+//    }
 }
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.constraintlayout)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+
+    implementation ("androidx.fragment:fragment-ktx:1.3.2")
+
+//    implementation ("com.google.dagger:hilt-android:2.49")
+//    kapt ("com.google.dagger:hilt-compiler:2.49")
+//    kapt ("androidx.hilt:hilt-compiler:1.0.0")
+//    kapt ("com.google.dagger:hilt-android-compiler:2.49")
+//    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+
+//    implementation ("com.google.dagger:hilt-android:2.52")
+//    annotationProcessor ("com.google.dagger:hilt-compiler:2.52")
+
+    // Coroutine Lifecycle Scopes
+//    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+//    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+
+    // Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    // Coil
+//    implementation ("io.coil-kt:coil-compose:1.4.0")
 
     // Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
-    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.7")
-    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.7")
-
-    // Glide
-    implementation ("com.github.bumptech.glide:glide:4.15.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.0")
+    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
+    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 }
+//kapt {
+//    correctErrorTypes = true
+//}
