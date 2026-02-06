@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 
+//class GetUserUseCase @Inject constructor(private val repository: UserRepository) {
 class GetUserUseCase (/*private val appModule: AppModule*/private val repository: UserRepository ) {
     operator fun invoke(): Flow<Resource<List<UserModel>>> = flow {
         try {

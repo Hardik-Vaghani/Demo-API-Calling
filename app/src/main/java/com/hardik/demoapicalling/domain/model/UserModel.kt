@@ -1,38 +1,33 @@
 package com.hardik.demoapicalling.domain.model
 
-import com.hardik.demoapicalling.data.remote.dto.UserDto
+
+import com.google.gson.annotations.SerializedName
 
 data class UserModel(
+    @SerializedName("city")
     val city: String,
+    @SerializedName("companyname")
     val companyName: String,
+    @SerializedName("email")
     val email: String,
+    @SerializedName("id")
     val id: Int,
+    @SerializedName("lat")
     val lat: String,
+    @SerializedName("lng")
     val lng: String,
+    @SerializedName("name")
     val name: String,
+    @SerializedName("phone")
     val phone: String,
+    @SerializedName("street")
     val street: String,
+    @SerializedName("suite")
     val suite: String,
+    @SerializedName("username")
     val username: String,
+    @SerializedName("website")
     val website: String,
+    @SerializedName("zipcode")
     val zipcode: String
 )
-
-fun UserModel.toUserDto(): UserDto {
-    return UserDto(
-        address = UserDto.Address(
-            city = city,
-            street = street,
-            suite = suite,
-            geo = UserDto.Address.Geo(lat = lat, lng = lng),
-            zipcode = zipcode,
-        ),
-        company = UserDto.Company(bs = "", catchPhrase = "", name = companyName),
-        email = email,
-        id = id,
-        name = name,
-        phone = phone,
-        username = username,
-        website = website,
-        )
-}
